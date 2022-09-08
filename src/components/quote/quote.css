@@ -1,0 +1,15 @@
+#quote-box {
+    
+}
+
+button {
+    border: none;
+    margin-top: -9px !important;
+}
+
+#quote-box,
+i,
+button{
+    border-radius: 4px !important;
+}
+

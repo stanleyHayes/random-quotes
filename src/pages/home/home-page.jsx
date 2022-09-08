@@ -1,6 +1,7 @@
 import Quote from '../../components/quote/quote'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import "../../components/quote/quote.css"
 
 
 const HomePage = () =>{
@@ -24,11 +25,29 @@ const HomePage = () =>{
 
     return (
         <div>
-            {selectedQuote ? (<Quote selectedQuote={selectedQuote} />): (<div>No quote selected</div>)}
-            <div>
-                {quotes.length === 0 && (<div>No quotes available</div>)}
-                {quotes.map((q, i) => <div key={i} onClick={() => setSelectedQuote(q)}>{q.quote}</div>)}
+          <body className='bg-dark'>
+          {selectedQuote ? 
+              (<Quote selectedQuote={selectedQuote} />): 
+              (<div>
+                <div className="p-3"></div>
+                <section className="bg-white text-dark p-4 fs-2 mx-5 mb-5 border text-center" id="quote-box">
+                  No quote selected
+                </section>
+              </div>)}
+              
+            <div className='text-white'>
+                {quotes.length === 0 && (<div>
+                  <section className="bg-white text-dark p-4 fs-2 m-5 border text-center" id="quote-box">
+                  No quote Available
+                </section>
+
+                </div>)}
+                {quotes.map((q, i) => <div key={i} onClick={() => setSelectedQuote(q)}>
+                  <p className='text-center p-3 border m-3'>{q.quote}</p>
+                </div>)}
             </div>
+
+          </body>            
         </div>
     )
 }
